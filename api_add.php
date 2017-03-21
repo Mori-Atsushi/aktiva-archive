@@ -16,7 +16,7 @@
     exit();
   }
 
-  $query = "insert into history(user_id, music_id, date, score, part, body, timing, expression, comment) values('" . $_GET["user"] . "', '" . $_GET["song"]. "', '" . $_GET["date"] . "', '" . $_GET["total"] . "', '" . $_GET["part"] . "' ,'" .  $_GET["body"] . "', '" . $_GET["timing"] . "', '" . $_GET["expression"] . "', '" . $_GET["comment"] . "');";
+  $query = "insert into history(user_id, music_id, date, score, part, body, timing, expression, comment) values('" . $_GET["user"] . "', '" . $_GET["song"]. "', to_date('" . $_GET["date"] . "','yyyy-mm-dd hh24-mi'), '" . $_GET["total"] . "', '" . $_GET["part"] . "' ,'" .  $_GET["body"] . "', '" . $_GET["timing"] . "', '" . $_GET["expression"] . "', '" . $_GET["comment"] . "');";
   $result = sqlsrv_query($conn, $query);
   if($result === false) {
     print('<p>クエリーが失敗しました。</p>');
